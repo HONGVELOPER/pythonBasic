@@ -1,5 +1,5 @@
 from enum import Enum
-from stack import FixedStack
+from fixed_stack import FixedStack
 
 Menu = Enum('Menu', ['푸시', '팝', '피크', '검색', '덤프', '종료'])
 

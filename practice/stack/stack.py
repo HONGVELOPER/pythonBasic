@@ -1,69 +1,47 @@
 from typing import Any
+from collections import deque
 
-class FixedStack:
-    
-    class Empty(Exception):
-        pass
+class Stack:
 
-    class Full(Exception):
-        pass
-
-    def __init__(self, capacity: int = 256) -> None:
-        self.stk = [None] * capacity
-        self.capacity = capacity
-        self.ptr = 0
-
+    def __init__(self, maxlen: int = 256) -> None:
+        ''' 스택 초기화 '''
+        self.capacity = maxlen
+        self.__stk = deque([], maxlen)
 
     def __len__(self) -> int:
-        return self.ptr
-
+        return len(self.__stk)
 
     def is_empty(self) -> bool:
-        return self.ptr <= 0
-
+        return not self.__stk
+    
     def is_full(self) -> bool:
-        return self.ptr >= self.capacity
+        return len(self.__stk) == self.__stk.maxlen
 
     def push(self, value: Any) -> None:
-        ''' 스택에 value 푸쉬함 '''
-        if self.is_full(): # 스택이 가득 차 있는 경우
-            raise FixedStack.Full # 예외처리 발생
-
-        self.stk[self.ptr] = value
-        self.ptr += 1
+        self.__stk.append(value)
 
     def pop(self) -> Any:
-        if self.is_empty():
-            raise FixedStack.Empty
+        return self.__stk.pop()
 
-        self.ptr -= 1
-        return self.stk[self.ptr]
-
-    def peek(self) -> Any:
-        if self.is_empty():
-            raise FixedStack.Empty
-
-        return self.stk[self.ptr -1]
+    def.peek(self) -> Any:
+        return self.__stk[-1]
 
     def clear(self) -> None:
-        self.ptr = 0
+        self.__stk.clear()
 
     def find(self, value: Any) -> Any:
-        for i in range(self.ptr - 1, -1, -1):
-            if self.stk[i] == value:
-                return i
-        return -1
+        try:
+            return self.__stk.index(value)
+        except ValueError:
+            return -1
 
-    # 스택에 value의 값을 갖고 있는 원소의 개수를 return
-    def count(self, value: Any) -> Any:
-        c = 0
-        for i in range(self.ptr):
-            if self.stk[i] == value:
-                c += 1
-        return c
+    def count(self, value: Any) -> int:
+        return self.__stk.count(value)
 
-    def dump(self) -> None:
-        if self.is_empty():
-            print('스택이 비엇습니다.')
-        else:
-            print(self.stk[:self.ptr])
+    def __contains__(self, value: Any) -> bool:
+        return self.count(value)
+
+    def dump(self) -> Any:
+        print(list(self.__stk))
+
+    

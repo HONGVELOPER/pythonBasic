@@ -1,16 +1,8 @@
-def solution(x):
-    a = []
-    for i in str(x):
-        a.append(i)
-        print(a)
+def add_1(n):
+    return n + 1
 
-    b = sum(map(int, a))
-        
-    if x % b == 0:
-        answer = True
-    else:
-        answer = False
-    return answer
+target = [1, 2, 3, 4, 5]
 
-if __name__ == '__main__':
-    solution(12)
+result = map(add_1, target)
+
+print(result[0])
