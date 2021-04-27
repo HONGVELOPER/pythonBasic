@@ -22,6 +22,8 @@ def property_lookup():
     res = requests.get(server_url + '/v1/accounts', headers=headers)
 
     return res.json()
+
+
     
 
 property = property_lookup()

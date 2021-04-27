@@ -7,8 +7,12 @@
 
 # print(result[0])
 
-a = [1, 2, 3]
+# a = [1, 2, 3]
 
-print(dir(a))
+# print(dir(a))
 # a_iter = iter(a)
 # print(a_iter)
+
+a = '123'
+a = a + '4'
+print(a)
