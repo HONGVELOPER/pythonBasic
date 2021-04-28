@@ -13,7 +13,6 @@ def solution(numbers):
                 print('진입')
         answer.append(n)    
         answer.sort(reverse=True)
-        if 
     print(answer)
     # biggest = max(answer)
 
