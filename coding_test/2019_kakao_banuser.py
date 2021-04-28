@@ -5,7 +5,7 @@ def solution(user_id, banned_id):
     answer = 0
     for i in user_id:
         for j in i:
-            print(j)
+            
     return answer
 
 

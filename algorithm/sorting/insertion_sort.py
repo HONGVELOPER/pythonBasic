@@ -12,11 +12,11 @@ def insertion_sort(a: MutableSequence) -> None:
 
     n = len(a)
     for i in range(1, n):
-        j = iw
+        j = i
         tmp = a[i]
         while j > 0 and a[j - 1] > tmp:
             a[j] = a[j - 1]
-            j -= 1
+            j -= 1 # 자신보다 작은 수 바로 뒤에 들어가기 위해 j를 1씩 줄여가며 검색
 
         a[j] = tmp
 

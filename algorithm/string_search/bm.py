@@ -11,17 +11,17 @@ def bm_match(txt: str, pat: str) -> int:
         skip[ord(pat[pt])] = len(pat) - pt - 1
 
     # 문자열 검색
-    print(pt, 1111)
+    print(pt, 'pt')
     while pt < len(txt):
         print(pt)
-        pp = len(pat) - 1
-        while txt[pt] == pat[pp]:
-            if pp == 0:
+        pp = len(pat) - 1 # pp는 pattern의 끝 문자를 나타내는 index 이다.
+        while txt[pt] == pat[pp]: # txt와 pat의 글자가 같다면 ?
+            if pp == 0: # pp가 -1 씩 줄면서 0이 되면 txt에서 pat과 같은 글자를 발견햇다는 뜻이다. !
                 return pt
             pt -= 1
             pp -= 1
         
-        pt += skip[ord(txt[pt])] if skip[ord(txt[pt])] > len(pat) - pp else len(pat) - pp
+        pt += skip[ord(txt[pt])] if skip[ord(txt[pt])] >    len(pat) - pp else len(pat) - pp
 
     return -1
 

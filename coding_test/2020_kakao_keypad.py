@@ -32,10 +32,10 @@ def solution(numbers, hand):
                         left = j, k
                     if length[j][k] == now_right:
                         right = j, k
-            if ((next[0] - left[0]) ** 2 + (next[1] - left[1]) ** 2) > ((next[0] - right[0]) ** 2 + (next[1] - right[1]) ** 2): 
+            if (abs(next[0] - left[0]) + abs(next[1] - left[1])) > (abs(next[0] - right[0]) + abs(next[1] - right[1])): 
                 answer = answer + 'R'
                 now_right = i
-            elif ((next[0] - left[0]) ** 2 + (next[1] - left[1]) ** 2) < ((next[0] - right[0]) ** 2 + (next[1] - right[1]) ** 2):
+            elif (abs(next[0] - left[0]) + abs(next[1] - left[1])) < (abs(next[0] - right[0]) + abs(next[1] - right[1])):
                 answer = answer + 'L'
                 now_left = i
             else:

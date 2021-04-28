@@ -2,17 +2,21 @@
 
 from typing import MutableSequence
 
+a = [3, 4, 2, 3, 1]
 def selection_sort(a: MutableSequence) -> None:
 
     n = len(a)
-    for i in range(n-1):
+    for i in range(n - 1):
         min = i
         for j in range(i + 1, n):
             if a[j] < a[min]:
                 min = j
 
-        a[i], a[min] = a[min], a[j]
+        a[i], a[min] = a[min], a[i]
+    
+    print(a)
 
+selection_sort(a)
 '''
  이 알고리즘은 안정적이지는 않다.
  예를들어 3이 2개 일때 왼쪽 3을 3(LEFT) 오른쪽 3을 3(RIGHT)라 할 때,

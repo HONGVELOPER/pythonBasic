@@ -1,16 +1,10 @@
-
-
-board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]
-moves = [1,5,3,5,1,2,1,4]
-
-
 def solution(board, moves):
     bag = []
     answer = 0
     ptr = 0
     moves = list(map(minus, moves))
     for i in moves:
-        for j in range(0, len(board[0])):
+        for j in range(len(board[0])):
             if board[j][i] != 0:
                 if ptr == 0:
                     bag.append(board[j][i])
@@ -36,3 +30,20 @@ def minus(a):
 
 solution(board, moves)
 
+def solution_other(board, moves):
+    stacklist = []
+    answer = 0
+
+    for i in moves:
+        for j in range(len(board)):
+            if board[j][i-1] != 0:
+                stacklist.append(board[j][i-1])
+                board[j][i-1] = 0
+            
+                if len(stacklist) > 1:
+                    if stacklist[-1] == stacklist[-2]:
+                        stacklist.pop(-1)
+                        stacklist.pop(-1)
+                        answer += 2
+                break
+    return answer
