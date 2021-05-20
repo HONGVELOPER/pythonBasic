@@ -1,18 +1,18 @@
-w = 3
+w = 8
 h = 12
 
 import math
 def solution(w,h):
     answer = 0
-    if (h > w):
+    if h > w:
         w, h = h, w
-    a = w / h
     left = 0
     right = w / h
     for _ in range(h):
+        print(left, right, math.ceil(right) - int(left))
         answer += (math.ceil(right) - math.floor(left))
         left = right
-        right += a
+        right += w / h
     # return w * h - answer
     print(w * h - answer)
 
