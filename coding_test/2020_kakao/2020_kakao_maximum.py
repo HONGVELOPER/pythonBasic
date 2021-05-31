@@ -1,25 +1,26 @@
 expression = "100-200*300-500+20"
 # expression = "50*6-3*2"
+
+import re
 def solution(expression):
-    array = [['+', '-', '*'], ['+', '*', '-'], ['-', '+', '*'], ['-', '*', '+'], ['*', '+', '-'], ['*', '-', '+']]
-    final = []
-    for i in array:
-        for j in i:
-            id = expression.find(j)
-            bef = expression[:id].rfind('+' or '-' or '*')
-            print(id)
-            print(bef)
-            break
-        break
-    #         if j == '+':
-    #             result = int(expression[id-1]) + int(expression[id+1])
-    #         elif j == '-':
-    #             result = int(expression[id-1]) - int(expression[id+1])
-    #         else:
-    #             result = int(expression[id-1]) * int(expression[id+1])
-    #         expression = expression.replace(expression[id-1:id+2], str(result))
-    #     final.append(int(expression))
-    # biggest = max(final)
+    priority = [['+', '-', '*'], ['+', '-', '*'], ['-', '+', '*'], ['-', '*', '+'], ['*', '+', '-'], ['*', '-', '+']]
+    answer = 0
+    digit_list = re.compile('[0-9]+').findall(expression)
+    calculate_list = re.compile('[-,+,*]+').findall(expression)
+    for i in priority:
+        while i[0] in calculate_list:
+            printi[0]
+            first = calculate_list.pop(calculate_list.index(i[0]))
+            plus = digit_list[first] + digit_list[first+1]
+        print('=============================')
+        while i[0] in calculate_list and i[0] == '-':
+            second = calculate_list.pop(calculate_list.index(j))
+            plus = digit_list[first] + digit_list[first+1]
+        print('=============================')
+        while i[0] in calculate_list and i[0] == '+':
+            first = calculate_list.pop(calculate_list.index(j))
+            plus = digit_list[first] + digit_list[first+1]
+
 
 solution (expression)
 

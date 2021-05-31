@@ -1,5 +1,13 @@
-a = '123123'
+class A:
+    def __init__(self, data):
+        self.data = data
+    
+    def plus(self, count):
+        self.data + count
 
-# a[:2] = '55'
+a = A(2)
+b = a
+b.plus(2)
 
+print(b)
 print(a)
