@@ -6,3 +6,5 @@ iphone_df = pd.read_csv('C:/Users/hyjin/Desktop/iphone.csv', index_col=0)
 
 print(iphone_df)
 print(type(iphone_df))
+# print(iphone_df.loc['iphone', '메모리'])
+

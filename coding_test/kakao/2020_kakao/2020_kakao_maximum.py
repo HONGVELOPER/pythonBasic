@@ -9,7 +9,6 @@ def solution(expression):
     calculate_list = re.compile('[-,+,*]+').findall(expression)
     for i in priority:
         while i[0] in calculate_list:
-            printi[0]
             first = calculate_list.pop(calculate_list.index(i[0]))
             plus = digit_list[first] + digit_list[first+1]
         print('=============================')

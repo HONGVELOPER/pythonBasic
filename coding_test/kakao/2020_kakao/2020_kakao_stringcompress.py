@@ -1,14 +1,15 @@
 # s = "aabbaccc"
 # s = "ababcdcdababcdcd"
 # s = "abcabcabcabcdededededede"
-s = "abcabcdede"
+# s = "abcabcdede"
+s = "1234567"
 
 def solution(s):
     min_length = 1001
-    for i in range(1, len(s) // 2 + 1):         # 띄어 쓰기를 바꾸기 위한 for문
+    for i in range(1, len(s) // 2 + 1):         # 문자 간격을 바꾸기 위한 for문
         compress_count = 0
         remember = None
-        for j in range(len(s)):                 # 문자를 띄어쓰기 만큼 오른쪽으로 움직이기 위한 for문
+        for j in range(len(s)):                 # 문자 간격만큼 오른쪽으로 움직이기 위한 for문
             left = i * j
             right = left + i
             if s[left:right] == s[right:right+i] and len(s[left:right]) > 0:
